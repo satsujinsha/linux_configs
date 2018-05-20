@@ -1,0 +1,13 @@
+- name: Install License
+  vars:
+    port_num: 9200
+  uri:
+    url: https://{{ ansible_hostname }}:{{ port_num }}/_xpack/license
+    method: PUT
+    headers:
+      Content-Type: "application/json"
+#    HEADER_Content-Type: "application/json"
+    user: elastic
+    password: "{{ elastic }}"
+    body: "{{ lookup('file','license.json') }}"
+
