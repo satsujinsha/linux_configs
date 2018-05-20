@@ -92,10 +92,12 @@ fi
 # vim:ts=4:sw=4
 
 # sets up individual environments when using sudo
+export REALUSER=$(logname)
+
 if [ -f /home/${REALUSER}/.config/.userrc ]; then
   if [[ ! ${REALUSER} == $(whoami) ]]; then
-    echo sourcing /home/${REALUSER}/.userrc
-    . /home/${REALUSER}/.userrc
+    echo sourcing /home/${REALUSER}/.config/.userrc
+    . /home/${REALUSER}/.config/.userrc
   fi
 fi
 
